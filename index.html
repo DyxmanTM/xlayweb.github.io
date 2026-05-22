@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xlay | About Me</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #050505;
+      color: white;
+      position: relative;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+      animation: pulse 6s infinite ease-in-out;
+    }
+
+    .blob1 {
+      width: 500px;
+      height: 500px;
+      background: #8b5cf6;
+      top: -200px;
+      left: -150px;
+    }
+
+    .blob2 {
+      width: 400px;
+      height: 400px;
+      background: #ec4899;
+      bottom: -150px;
+      right: -100px;
+      animation-delay: 2s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-100vh); }
+    }
+
+    .card {
+      position: relative;
+      z-index: 5;
+      width: 420px;
+      padding: 40px;
+      border-radius: 32px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      text-align: center;
+      animation: fadeIn 1s ease;
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.01);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+      }
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+    }
+
+    .avatar-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #ff00cc, #7c3aed);
+      filter: blur(25px);
+      animation: spin 8s linear infinite;
+    }
+
+    .avatar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.2);
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 42px;
+      font-weight: 900;
+      background: linear-gradient(to right, #ff4fd8, #9f67ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: rgba(255,255,255,0.7);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .link {
+      position: relative;
+      overflow: hidden;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .link:hover {
+      transform: scale(1.04);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .link:active {
+      transform: scale(0.96);
+    }
+
+    .link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+      transform: translateX(-100%);
+      transition: 0.8s;
+    }
+
+    .link:hover::before {
+      transform: translateX(100%);
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+  </div>
+
+  <div class="card">
+    <div class="avatar-wrap">
+      <div class="avatar-glow"></div>
+      <img class="avatar" src="https://i1-e.pinimg.com/1200x/c2/d3/7e/c2d37e843249a074fafef050093c5f58.jpg" alt="avatar">
+    </div>
+
+    <h1>XLAY</h1>
+
+    <div class="description">
+      Занимаюсь рескинами для игры Garry's Mod<br>
+      Ютубом<br>
+      Иногда стримлю на твиче
+    </div>
+
+    <div class="links">
+      <a class="link" href="https://discord.gg/uhc3r3k5nx" target="_blank">💬 Discord</a>
+      <a class="link" href="https://www.youtube.com/c/DyxmanTM" target="_blank">▶️ YouTube</a>
+      <a class="link" href="https://steamcommunity.com/id/chmonixlay/" target="_blank">🎮 Steam</a>
+    </div>
+
+    <div class="footer">Я устал это писать...</div>
+  </div>
+
+  <script>
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.top = Math.random() * 100 + 'vh';
+      const s = (Math.random() * 5 + 2) + 'px';
+      p.style.width = s;
+      p.style.height = s;
+      p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+      document.body.appendChild(p);
+    }
+
+    document.addEventListener('click', e => {
+      const c = document.createElement('div');
+      c.style.position = 'fixed';
+      c.style.left = e.clientX + 'px';
+      c.style.top = e.clientY + 'px';
+      c.style.width = '10px';
+      c.style.height = '10px';
+      c.style.borderRadius = '50%';
+      c.style.background = 'white';
+      c.style.transform = 'translate(-50%, -50%)';
+      c.style.animation = 'clickAnim 0.6s forwards';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 600);
+    });
+
+    const clickStyle = document.createElement('style');
+    clickStyle.innerHTML = `@keyframes clickAnim{from{opacity:1;transform:translate(-50%,-50%) scale(1);}to{opacity:0;transform:translate(-50%,-50%) scale(8);}}`;
+    document.head.appendChild(clickStyle);
+  </script>
+
+</body>
+</html>
